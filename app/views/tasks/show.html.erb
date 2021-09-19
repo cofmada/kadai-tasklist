@@ -1,3 +1,7 @@
-<h1>タスクNo.<%= @task.id %>の詳細ページ</h1>
+<h2>タスクNo.<%= @task.id %>の詳細</h2>
 
-<p><%= @task.content %></p>
+<p>登録されている内容：『<%= @task.content %>』</p>
+
+<%= link_to '一覧に戻る', tasks_path %>
+<%= link_to '内容を編集する', edit_task_path(@task) %>
+<%= link_to '削除する', @task, method: :delete, data: { confirm: '本当に削除しますか？' } %>
