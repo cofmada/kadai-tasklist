@@ -1,7 +1,3 @@
 <h2>タスクの編集（更新）</h2>
 
-<h3>タスクNo.<%= @task.id %></h3>
-<p>登録されている内容：『<%= @task.content %>』</p>
-
 <%= render'form_messages',task: @task %>
-<%= link_to '一覧に戻る', tasks_path %>

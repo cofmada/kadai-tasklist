@@ -1,11 +1,27 @@
 <h1>タスクの一覧</h1>
 
-<ul>
-  <% @tasks.each do |task| %>
-    <li>No.<%= link_to task.id, task %> : <%= task.content %> &rArr;<%= task.status %></li>
-  <% end %>
-</ul>
+<% if @tasks.any? %>
+  <table class="table table-striped text-start my-5">
+    <thead>
+      <tr>
+        <th style="width: 10%">No</th>
+        <th style="width: 20%">タスク</th>
+        <th style="width: 70%">状態</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.id, task %></td>
+          <td><%= task.content %></td>
+          <td><%= task.status %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div>
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
+<% end %>
 
-<%== pagy_nav(@pagy) %>
-
-<%= link_to '新規タスクの登録', new_task_path %>
+<%= link_to '新規タスクの登録', new_task_path, class: "btn btn-primary" %>
