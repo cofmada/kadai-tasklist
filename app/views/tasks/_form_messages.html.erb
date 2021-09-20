@@ -1,0 +1,5 @@
+<%= form_with(model: task) do |f| %>
+  <%= f.label :content, '内容を入力' %>
+  <%= f.text_field :content, placeholder: '〇〇する、など' %>
+  <%= f.submit '登録' %>
+<% end %>

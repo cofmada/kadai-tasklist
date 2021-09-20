@@ -1,13 +1,7 @@
 <h2>タスクの編集（更新）</h2>
 
-<h2>タスクNo.<%= @task.id %></h2>
+<h3>タスクNo.<%= @task.id %></h3>
 <p>登録されている内容：『<%= @task.content %>』</p>
 
-<%= form_with(model: @task) do |f| %>
-  <%= f.label :content, '更新内容を入力' %>
-  <%= f.text_field :content, placeholder: '〇〇する、など' %>
-  
-  <%= f.submit '更新' %>
-<% end %>
-
+<%= render'form_messages',task: @task %>
 <%= link_to '一覧に戻る', tasks_path %>

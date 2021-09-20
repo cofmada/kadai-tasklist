@@ -1,9 +1,5 @@
-<h1>新規タスク入力フォーム</h1>
+<h2>新規タスク入力フォーム</h2>
 
-<%= form_with(model: @task) do |f| %>
-  <%= f.label :content, 'タスク内容を入力' %>
-  <%= f.text_field :content, placeholder: '〇〇する、など' %>
-  <%= f.submit '登録' %>
-<% end %>
+<%= render'form_messages',task: @task %>
 
 <%= link_to '一覧に戻る', tasks_path %>
