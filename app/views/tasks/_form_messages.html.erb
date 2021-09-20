@@ -1,5 +1,20 @@
 <%= form_with(model: task) do |f| %>
-  <%= f.label :content, '内容を入力' %>
-  <%= f.text_field :content, placeholder: '〇〇する、など' %>
+
+  <% if task.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% task.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+  <%= f.label :content, 'タスク名を入力' %>
+  <%= f.text_field :content, placeholder: '勉強、掃除など' %>
+  
+  <%= f.label :status, '内容を入力' %>
+  <%= f.text_field :status, placeholder: '〇〇をする、など' %>
+  
   <%= f.submit '登録' %>
 <% end %>
