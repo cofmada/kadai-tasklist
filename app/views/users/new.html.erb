@@ -2,18 +2,8 @@
 
 <div class="row">
   <div class="col-6">
-    <%= form_with(model: user) do |f| %>
-    
-      <% if user.errors.any? %>
-          <div id="error_explanation" class="alert alert-warning">
-            <ul class="mb-0">
-              <% user.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-      <% end %>
-    
+    <%= form_with(model: @user) do |f| %>
+
       <div class="mb-3">
         <%= f.label :name, 'ユーザー名：' %>
         <%= f.text_field :name, class: 'form-control' %>
@@ -25,8 +15,8 @@
       </div>
       
       <div class="mb-3">
-        <%= f.label :passwaord, 'パスワード：' %>
-        <%= f.password_field :passwaord_digest, class: 'form-control'%>
+        <%= f.label :password, 'パスワード：' %>
+        <%= f.password_field :password, class: 'form-control'%>
       </div>
       
       <div class="mb-3">
@@ -34,8 +24,8 @@
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
       
-      <%= f.submit '新規登録！' %>
+      <%= f.submit '新規登録' %>
     <% end %>
   </div>
 </div>
-<%=# link_to '戻る', sesssions_path, class: "btn btn-secondary my-5" %>
+<%= link_to '戻る', login_path, class: "btn btn-secondary my-5" %>

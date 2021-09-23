@@ -1,4 +1,8 @@
-<h1>タスクの一覧</h1>
+<% if logged_in? %>
+  <h1><%= current_user.name %>さんのタスク一覧</h1>
+<% else %>
+　<%= redirect_to login_path %>
+<% end %>　
 
 <% if @tasks.any? %>
   <table class="table table-striped text-start my-5">
@@ -25,3 +29,4 @@
 <% end %>
 
 <%= link_to '新規タスクの登録', new_task_path, class: "btn btn-primary" %>
+<%= link_to 'ログアウト', logout_path, method: :delete, class: "btn btn-secondary" %>
