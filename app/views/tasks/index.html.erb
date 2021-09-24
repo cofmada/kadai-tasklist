@@ -1,8 +1,4 @@
-<% if logged_in? %>
   <h1><%= current_user.name %>さんのタスク一覧</h1>
-<% else %>
-　<%= redirect_to login_path %>
-<% end %>　
 
 <% if @tasks.any? %>
   <table class="table table-striped text-start my-5">
